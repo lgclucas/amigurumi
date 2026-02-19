@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Pacifico&display=swap');
+
+@layer base {
+  :root {
+    --background: 30 50% 98%;
+    --foreground: 20 30% 20%;
+
+    --card: 30 40% 97%;
+    --card-foreground: 20 30% 20%;
+
+    --popover: 30 40% 97%;
+    --popover-foreground: 20 30% 20%;
+
+    --primary: 10 70% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 340 50% 75%;
+    --secondary-foreground: 340 50% 25%;
+
+    --muted: 30 30% 92%;
+    --muted-foreground: 20 20% 45%;
+
+    --accent: 35 80% 70%;
+    --accent-foreground: 35 80% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 30% 88%;
+    --input: 30 30% 88%;
+    --ring: 10 70% 65%;
+
+    --radius: 1rem;
+
+    /* Custom colors for crochet theme */
+    --coral: 10 70% 65%;
+    --coral-light: 10 70% 85%;
+    --coral-dark: 10 70% 50%;
+    --pink: 340 50% 75%;
+    --pink-light: 340 50% 90%;
+    --cream: 35 40% 95%;
+    --cream-dark: 35 30% 85%;
+    --yarn-brown: 25 40% 35%;
+    --soft-green: 150 30% 70%;
+    --soft-blue: 200 40% 75%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(30 50% 98%) 0%, hsl(340 50% 95%) 50%, hsl(10 70% 92%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(10 70% 65%) 0%, hsl(340 50% 65%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(30 40% 97%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(10 70% 65% / 0.2);
+    --shadow-card: 0 8px 30px -8px hsl(20 30% 20% / 0.1);
+    --shadow-cta: 0 10px 40px -10px hsl(10 70% 65% / 0.4);
+  }
+
+  .dark {
+    --background: 20 30% 10%;
+    --foreground: 30 50% 95%;
+
+    --card: 20 25% 15%;
+    --card-foreground: 30 50% 95%;
+
+    --popover: 20 25% 15%;
+    --popover-foreground: 30 50% 95%;
+
+    --primary: 10 70% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 340 40% 40%;
+    --secondary-foreground: 340 50% 90%;
+
+    --muted: 20 20% 20%;
+    --muted-foreground: 30 20% 65%;
+
+    --accent: 35 60% 50%;
+    --accent-foreground: 35 80% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 20 20% 25%;
+    --input: 20 20% 25%;
+    --ring: 10 70% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Pacifico', cursive;
+  }
+
+  .text-gradient {
+    background: var(--gradient-cta);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .bg-cta-gradient {
+    background: var(--gradient-cta);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-cta {
+    box-shadow: var(--shadow-cta);
+  }
+
+  /* Yarn ball animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(5deg);
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary) / 0) 0%,
+      hsl(var(--primary) / 0.3) 50%,
+      hsl(var(--primary) / 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Stitch pattern background */
+  .bg-stitch-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--pink) / 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, hsl(var(--coral) / 0.1) 2px, transparent 2px);
+    background-size: 30px 30px;
+  }
+
+  /* Yarn texture overlay */
+  .yarn-texture {
+    position: relative;
+  }
+
+  .yarn-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        hsl(var(--primary) / 0.03) 2px,
+        hsl(var(--primary) / 0.03) 4px
+      );
+    pointer-events: none;
+  }
+}
